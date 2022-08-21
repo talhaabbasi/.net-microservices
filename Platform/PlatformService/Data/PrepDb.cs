@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using PlatformService.Models;
 
 namespace PlatformService.Data
 {
@@ -14,7 +14,20 @@ namespace PlatformService.Data
 
         private static void SeedData(AppDbContext context)
         {
-            if(!context.Platforms.Add)
+            if (!context.Platforms.Any())
+            {
+                Console.WriteLine("-> Seeding data");
+                context.Platforms.AddRange(
+                    new Platform() { Name = "Dot Net", Publisher = "Microsoft", Cost = "Free" },
+                    new Platform() { Name = "SQL Server Express", Publisher = "Microsoft", Cost = "Free" },
+                    new Platform() { Name = "Kubernetes", Publisher = "Microsoft", Cost = "Free" });
+            }
+
+            else
+            {
+                Console.WriteLine("-> We alread have data");
+            }
+
         }
     }
 }
