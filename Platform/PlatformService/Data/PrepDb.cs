@@ -21,6 +21,7 @@ namespace PlatformService.Data
                     new Platform() { Name = "Dot Net", Publisher = "Microsoft", Cost = "Free" },
                     new Platform() { Name = "SQL Server Express", Publisher = "Microsoft", Cost = "Free" },
                     new Platform() { Name = "Kubernetes", Publisher = "Microsoft", Cost = "Free" });
+                context.SaveChanges();
             }
 
             else
